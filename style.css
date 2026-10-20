@@ -1,0 +1,206 @@
+/* 1. IMPORTAÇÃO DE FONTE FOFA E MODERNA */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&display=swap');
+
+/* 2. VARIÁVEIS DE CORES SUAVES E PASTÉIS */
+:root {
+  --fundo-pagina: #fef6f8;
+  --fundo-card: #ffffff;
+  --texto-principal: #5a4b56;
+  --texto-suave: #9c8b97;
+  
+  --rosa-principal: #ffb7c5;
+  --rosa-hover: #ff9eaa;
+  --rosa-claro: #fff0f3;
+  
+  --verde-concluido: #d8f3dc;
+  --verde-texto: #40916c;
+  
+  --vermelho-remover: #ffadad;
+  --vermelho-hover: #ff8585;
+  
+  --borda-suave: #f3e8ee;
+  --sombra-fofa: 0 8px 24px rgba(220, 180, 200, 0.25);
+}
+
+/* 3. RESET E ESTILO GERAL */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Fredoka', cursive, sans-serif;
+}
+
+body {
+  background-color: var(--fundo-pagina);
+  color: var(--texto-principal);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* 4. CARTÃO PRINCIPAL */
+.app {
+  background-color: var(--fundo-card);
+  width: 100%;
+  max-width: 420px;
+  padding: 32px 28px;
+  border-radius: 28px;
+  box-shadow: var(--sombra-fofa);
+  border: 2px solid #ffffff;
+}
+
+h1 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #6b4d57;
+  margin-bottom: 24px;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+/* 5. CAMPO DE ENTRADA E BOTÃO */
+.entrada {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.entrada input {
+  flex: 1;
+  padding: 12px 18px;
+  font-size: 0.95rem;
+  background-color: var(--fundo-pagina);
+  border: 2px solid var(--borda-suave);
+  border-radius: 16px;
+  color: var(--texto-principal);
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.entrada input::placeholder {
+  color: var(--texto-suave);
+}
+
+.entrada input:focus {
+  border-color: var(--rosa-principal);
+  background-color: #ffffff;
+}
+
+.entrada button {
+  background-color: var(--rosa-principal);
+  color: #522e38;
+  border: none;
+  padding: 12px 20px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.entrada button:hover {
+  background-color: var(--rosa-hover);
+  transform: translateY(-2px);
+}
+
+.entrada button:active {
+  transform: translateY(0);
+}
+
+/* 6. MENSAGEM E CONTADOR */
+.mensagem {
+  color: #e05670;
+  font-size: 0.85rem;
+  min-height: 20px;
+  margin-left: 6px;
+  margin-bottom: 10px;
+}
+
+.contador {
+  color: var(--texto-suave);
+  font-size: 0.85rem;
+  text-align: right;
+  margin-top: 18px;
+  font-weight: 500;
+}
+
+/* 7. LISTA DE TAREFAS */
+.lista {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 300px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.lista li {
+  background-color: var(--fundo-pagina);
+  border: 1px solid var(--borda-suave);
+  padding: 12px 16px;
+  border-radius: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.2s ease;
+  animation: popIn 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.lista li:hover {
+  border-color: var(--rosa-principal);
+}
+
+/* Texto da tarefa */
+.lista li span {
+  flex: 1;
+  cursor: pointer;
+  font-size: 0.95rem;
+  word-break: break-word;
+  color: var(--texto-principal);
+}
+
+/* Tarefa Concluída */
+.lista li.concluida {
+  background-color: var(--verde-concluido);
+  border-color: #b7e4c7;
+}
+
+.lista li.concluida span {
+  text-decoration: line-through;
+  color: var(--verde-texto);
+}
+
+/* Botão Remover */
+.lista li .remover {
+  background-color: #ffffff;
+  color: #c94a4a;
+  border: 1px solid var(--vermelho-remover);
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 12px;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: all 0.2s ease;
+}
+
+.lista li .remover:hover {
+  background-color: var(--vermelho-hover);
+  color: #ffffff;
+  border-color: var(--vermelho-hover);
+}
+
+/* 8. ANIMAÇÃO SUAVE DE ENTRADA (EFEITO POP) */
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
